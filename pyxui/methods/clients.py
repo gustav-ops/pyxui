@@ -90,6 +90,7 @@ class Clients:
         email: str,
         uuid: str,
         enable: bool = True,
+        shadowsocks: bool = False,
         flow: str = "",
         limit_ip: int = 0,
         total_gb: int = 0,
@@ -137,7 +138,7 @@ class Clients:
         settings = {
             "clients": [
                 {
-                    "id": uuid,
+                    "password" if shadowsocks else "id": uuid,
                     "email": email,
                     "enable": enable,
                     "flow": flow,
