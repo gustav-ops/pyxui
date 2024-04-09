@@ -112,6 +112,9 @@ class Clients:
                 
             enable (``bool``, optional):
                Status of the client
+
+            shadowsocks (``bool``):
+                if server has shadowsocks support
                 
             flow (``str``, optional):
                Flow of the client
