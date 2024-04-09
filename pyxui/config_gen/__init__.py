@@ -23,13 +23,13 @@ def config_generator(protocol: str, config=dict, data: dict = None) -> str:
             )
 
         case "shadowsocks":
-            string = "ss://{}:{}@{}:{}#{}".format(
-                config["method"],
-                config["server_password"],
-                config["password"],
-                config["server"],
-                config["port"],
-                config["ps"],
+            ss_string = "{}:{}:{}".format(
+                config["method"], config["server_password"], config["password"]
+            )
+            encoded_ss_string = base64.b64encode(ss_string.encode()).decode("utf-8")
+
+            string = "ss://{}@{}:{}#{}".format(
+                encoded_ss_string, config["server"], config["port"], config["ps"]
             )
 
         case _:
