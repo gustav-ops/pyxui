@@ -196,7 +196,7 @@ class Clients:
             email=email,
             uuid=uuid
         )
-        clientid = find_client['id'] if protocol in ['vless','vmess'] else find_client['password']
+        clientid = find_client['id'] if protocol in ['vless','vmess'] else find_client['email']
         response = self.request(
             path=f"{inbound_id}/delClient/{clientid}",
             method="POST"
